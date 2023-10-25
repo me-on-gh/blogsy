@@ -27,4 +27,4 @@ The on-demand VPN feature for macOS may be a little bit tricky to configure thro
 
 I haven't tested everything thoroughly, but seemed like an easy way to quit the default behavior and await until you've re-connected to your network.
 
-A future update may follow with some more testing, but in the meantime it looks like a solution.
+A future update may follow with some more testing, but in the meantime, it looks like a solution.
