@@ -10,7 +10,7 @@ The on-demand VPN feature for macOS may be a little bit tricky to configure thro
 - A functioning IKEv2 tunnel or alike.
 - Creativity with bogus names.
 
-## Step 1: Open your current Network settings
+## Step 1: Open the Network settings
 
 ![Alt text](./img/image.png)
 
