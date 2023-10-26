@@ -33,6 +33,7 @@
 1. Ordered list
 	1. Sub-item
 1. Second-item
+
 ```
 1. Ordered list
 	1. Sub-item
@@ -41,10 +42,12 @@
 
 * Unordered List
 	* Sub-item
+
 ```
 * Unordered list
 	* Sub-item
-``` 
+```
+
 - [x] Task List
 ```
 - [x] Task
@@ -83,7 +86,9 @@ or 	***
 
 
 Footnote[^1]
+
 [^1]:  This is the footnote.
+
 ```
 Footnote[^1]
 [^1]: This is the footnote.
