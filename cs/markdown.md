@@ -48,7 +48,8 @@
 	* Sub-item
 ```
 
-- [x] Task List
+- [x] Task
+
 ```
 - [x] Task
 ```
