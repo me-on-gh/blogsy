@@ -63,7 +63,9 @@ or  indent with 4 spaces or 1 tab
 ```	
 
 Horizontal Rule
+
 ***
+
 ```
     ---
 or  ___ 
