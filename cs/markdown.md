@@ -1,3 +1,8 @@
+[![clickable](https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg)](www.google.com)
+
+	![alt text](image.jpg)
+	[![clickable](image.jpg)](google.com)
+
 ### Heading
 	# Heading - Biggest
 	## Heading
@@ -81,12 +86,6 @@ or 	***
 
 	[Reference link][test]
 	[test]: google.com
-
-[![clickable](https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg)](www.google.com)
-
-	![alt text](image.jpg)
-	[![clickable](image.jpg)](google.com)
-
 
 Footnote[^1]
 
