@@ -53,7 +53,7 @@
 	* Sub-item
 ```
 
-- [x] Task
+[x] Task
 
 ```
 - [x] Task
