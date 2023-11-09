@@ -1,17 +1,286 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-21T21:30:34+02:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2021/08/21/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-08-21T20:58:45+02:00</published><updated>2021-08-21T20:58:45+02:00</updated><id>/jekyll/update/2021/08/21/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2021/08/21/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-11-09T16:27:30+02:00</updated><id>/feed.xml</id><title type="html">Blogsy</title><subtitle>Sharing thoughts and things I find interesting.  </subtitle><entry><title type="html">How to create a kill-switch on the macOS GUI</title><link href="/2023-10-25-kill_switch/2023-10-25-kill_switch" rel="alternate" type="text/html" title="How to create a kill-switch on the macOS GUI" /><published>2023-10-25T00:00:00+03:00</published><updated>2023-10-25T00:00:00+03:00</updated><id>/2023-10-25-kill_switch/kill_switch</id><content type="html" xml:base="/2023-10-25-kill_switch/2023-10-25-kill_switch">&lt;h1 id=&quot;crafting-an-on-demand-vpn-alternative-with-socks-proxy&quot;&gt;Crafting an On-Demand VPN Alternative with “SOCKS Proxy”&lt;/h1&gt;
 
-&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+&lt;p&gt;Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The on-demand VPN feature for macOS may be a little bit tricky to configure through the GUI and without going through device management configuration tools.&lt;/p&gt;
 
-&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;h2 id=&quot;make-sure-youve-got&quot;&gt;Make sure you’ve got&lt;/h2&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;macOS.&lt;/li&gt;
+  &lt;li&gt;A functioning IKEv2 tunnel or alike.&lt;/li&gt;
+  &lt;li&gt;Creativity with bogus names.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;step-1-open-the-network-settings&quot;&gt;Step 1: Open the Network settings&lt;/h2&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/image.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;step-2-select-the-adapters-details&quot;&gt;Step 2: Select the adapter’s details&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/image-1.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3-configure-the-socks-proxy&quot;&gt;Step 3: “Configure” the SOCKS Proxy&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Enable the “SOCKS Proxy” option.&lt;/li&gt;
+  &lt;li&gt;Set a bogus server&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;step-4-enjoy-a-kill-switch&quot;&gt;Step 4: Enjoy a kill-switch&lt;/h2&gt;
+
+&lt;p&gt;I haven’t tested everything thoroughly, but seemed like an easy way to quit the default behavior and await until you’ve re-connected to your network.&lt;/p&gt;
+
+&lt;p&gt;A future update may follow with some more testing, but in the meantime, it looks like a solution.&lt;/p&gt;</content><author><name></name></author><category term="macos" /><category term="vpn" /><category term="on-demand" /><summary type="html">Crafting an On-Demand VPN Alternative with “SOCKS Proxy”</summary></entry><entry><title type="html">Cyber attack techniques and types</title><link href="/2023-10-24-kill-chain" rel="alternate" type="text/html" title="Cyber attack techniques and types" /><published>2023-10-24T00:00:00+03:00</published><updated>2023-10-24T00:00:00+03:00</updated><id>/kill-chain</id><content type="html" xml:base="/2023-10-24-kill-chain">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Malware type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Viruses&lt;/td&gt;
+      &lt;td&gt;Self-replicating programs that attach to legitimate files.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Worms&lt;/td&gt;
+      &lt;td&gt;Self-replicating malware that spreads over networks.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Trojans&lt;/td&gt;
+      &lt;td&gt;Masquerade as legitimate software but contain malicious code.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ransomware&lt;/td&gt;
+      &lt;td&gt;Encrypts files and demands a ransom for decryption.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spyware&lt;/td&gt;
+      &lt;td&gt;Secretly monitors and collects user activities.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Adware&lt;/td&gt;
+      &lt;td&gt;Displays unwanted advertisements, often as pop-up ads.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rootkits&lt;/td&gt;
+      &lt;td&gt;Stealthy malware that hides its presence.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Botnets&lt;/td&gt;
+      &lt;td&gt;Networks of compromised computers controlled by a central server.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Attack techniques&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phishing&lt;/td&gt;
+      &lt;td&gt;Deceptive emails or websites to trick users into revealing sensitive information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spear Phishing&lt;/td&gt;
+      &lt;td&gt;Targeted phishing with customized messages.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Man-in-the-Middle (MitM) Attacks&lt;/td&gt;
+      &lt;td&gt;Intercepting and altering communications.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;td&gt;Injecting malicious code into web forms to gain unauthorized access to databases.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DDoS Attacks&lt;/td&gt;
+      &lt;td&gt;Overwhelming targets with traffic to disrupt services.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Zero-Day Exploits&lt;/td&gt;
+      &lt;td&gt;Targeting unknown software vulnerabilities.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Drive-By Downloads&lt;/td&gt;
+      &lt;td&gt;Automatically downloading malware from compromised websites.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Social Engineering&lt;/td&gt;
+      &lt;td&gt;Manipulating individuals into divulging sensitive information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Brute Force Attacks&lt;/td&gt;
+      &lt;td&gt;Repeatedly guessing passwords or encryption keys.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Malvertising&lt;/td&gt;
+      &lt;td&gt;Using malicious ads to deliver malware.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Watering Hole Attacks&lt;/td&gt;
+      &lt;td&gt;Compromising websites visited by a target group.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Fileless Attacks&lt;/td&gt;
+      &lt;td&gt;Abusing legitimate system tools for malicious activities.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name></name></author><category term="cybersec" /><summary type="html">Malware type Description Viruses Self-replicating programs that attach to legitimate files. Worms Self-replicating malware that spreads over networks. Trojans Masquerade as legitimate software but contain malicious code. Ransomware Encrypts files and demands a ransom for decryption. Spyware Secretly monitors and collects user activities. Adware Displays unwanted advertisements, often as pop-up ads. Rootkits Stealthy malware that hides its presence. Botnets Networks of compromised computers controlled by a central server.</summary></entry><entry><title type="html">Ad delivery test</title><link href="/2023-10-22-ad_test" rel="alternate" type="text/html" title="Ad delivery test" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/ad_test</id><content type="html" xml:base="/2023-10-22-ad_test">&lt;html&gt;
+    &lt;iframe src=&quot;https://embed.music.apple.com/bg/album/last-words-feat-nashawn-millennium-thug/203759842&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;border: none&quot;;&gt;&lt;/iframe&gt;
+&lt;/html&gt;</content><author><name></name></author><category term="tests" /><summary type="html"></summary></entry><entry><title type="html">Markdown cheatsheet</title><link href="/2023-10-22-markdown/2023-10-22-markdown" rel="alternate" type="text/html" title="Markdown cheatsheet" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/2023-10-22-markdown/markdown</id><content type="html" xml:base="/2023-10-22-markdown/2023-10-22-markdown">&lt;p&gt;&lt;a href=&quot;http://google.com&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg&quot; alt=&quot;clickable&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![alt text](image.jpg)
+[![clickable](image.jpg)](https://google.com)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;heading&quot;&gt;Heading&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Heading - Biggest
+## Heading
+### Heading
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;**bold**
+or __bold__
+or &amp;lt;strong&amp;gt; bold &amp;lt;/strong&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*italic*
+or _italic_
+or &amp;lt;em&amp;gt; italic &amp;lt;/em&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;ins&gt;Underlined&lt;/ins&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;ins&amp;gt; Underlined &amp;lt;/ins&amp;gt; 
+(deprecated as it&apos;s hard to read and used for links)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquote&lt;/p&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;2nd blockquote&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; blockquote
+&amp;gt;&amp;gt; 2nd block quote
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;∼∼Strikethrough∼∼
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ordered list
+    &lt;ol&gt;
+      &lt;li&gt;Sub-item&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Second-item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Ordered list
+	1. Sub-item
+1. Second-item
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Unordered List
+    &lt;ul&gt;
+      &lt;li&gt;Sub-item&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* Unordered list
+	* Sub-item
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Task&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- [x] Task
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    `code` 
+or  ``` code ```
+or  indent with 4 spaces or 1 tab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Horizontal Rule&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    ---
+or  ___ 
+or 	***
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;google.com&quot;&gt;Direct link&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;google.com&quot;&gt;Reference link&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Direct link](google.com)
+
+[Reference link][test]
+[test]: google.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Footnote&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Footnote[^1]
+[^1]: This is the footnote.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;2nd Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;r1c1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;r1c2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;r2c1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;r2c2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| Header | 2nd Header |
+|   -    |    -:      | &amp;lt;- rightside alignment
+| r1c1   | r1c2       |
+| r2c1	 | r2c2       |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;# Escape&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\# Escape
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="cheatsheets" /><summary type="html"></summary></entry><entry><title type="html">Playlist test</title><link href="/2023-10-25-playlist" rel="alternate" type="text/html" title="Playlist test" /><published>2021-09-09T00:00:00+03:00</published><updated>2021-09-09T00:00:00+03:00</updated><id>/playlist</id><content type="html" xml:base="/2023-10-25-playlist">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLW7k-J84Xpm064_-zsyr07MF3PPxxUkoK&amp;amp;jct=gE2U7KxCZtu8_U7LTMb2Mx-UBAX4kQ&quot;&gt;Mixes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Mixes</summary></entry></feed>
