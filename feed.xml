@@ -1,282 +1,282 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-11-09T19:54:37+02:00</updated><id>/feed.xml</id><title type="html">Blogsy</title><subtitle>Sharing thoughts and things I find interesting.  </subtitle><entry><title type="html">Crafting an On-Demand VPN Alternative with “SOCKS Proxy”</title><link href="/2023/10/25/kill_switch.html" rel="alternate" type="text/html" title="Crafting an On-Demand VPN Alternative with “SOCKS Proxy”" /><published>2023-10-25T00:00:00+03:00</published><updated>2023-10-25T00:00:00+03:00</updated><id>/2023/10/25/kill_switch</id><content type="html" xml:base="/2023/10/25/kill_switch.html"><![CDATA[<p>Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-11-09T20:38:35+02:00</updated><id>/feed.xml</id><title type="html">Blogsy</title><subtitle>Sharing thoughts and things I find interesting.  </subtitle><entry><title type="html">Crafting an On-Demand VPN Alternative with “SOCKS Proxy”</title><link href="/2023/10/25/kill_switch.html" rel="alternate" type="text/html" title="Crafting an On-Demand VPN Alternative with “SOCKS Proxy”" /><published>2023-10-25T00:00:00+03:00</published><updated>2023-10-25T00:00:00+03:00</updated><id>/2023/10/25/kill_switch</id><content type="html" xml:base="/2023/10/25/kill_switch.html">&lt;p&gt;Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.&lt;/p&gt;
 
-<p>The on-demand VPN feature for macOS may be a little bit tricky to configure through the GUI and without going through device management configuration tools.</p>
+&lt;p&gt;The on-demand VPN feature for macOS may be a little bit tricky to configure through the GUI and without going through device management configuration tools.&lt;/p&gt;
 
-<h2 id="make-sure-youve-got">Make sure you’ve got</h2>
+&lt;h2 id=&quot;make-sure-youve-got&quot;&gt;Make sure you’ve got&lt;/h2&gt;
 
-<ul>
-  <li>macOS.</li>
-  <li>A functioning IKEv2 tunnel or alike.</li>
-  <li>Creativity with bogus names.</li>
-</ul>
+&lt;ul&gt;
+  &lt;li&gt;macOS.&lt;/li&gt;
+  &lt;li&gt;A functioning IKEv2 tunnel or alike.&lt;/li&gt;
+  &lt;li&gt;Creativity with bogus names.&lt;/li&gt;
+&lt;/ul&gt;
 
-<h2 id="step-1-open-the-network-settings">Step 1: Open the Network settings</h2>
+&lt;h2 id=&quot;step-1-open-the-network-settings&quot;&gt;Step 1: Open the Network settings&lt;/h2&gt;
 
-<p><img src="/img/image.png" alt="Alt text" /></p>
+&lt;p&gt;&lt;img src=&quot;/img/image.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
-<h2 id="step-2-select-the-adapters-details">Step 2: Select the adapter’s details</h2>
+&lt;h2 id=&quot;step-2-select-the-adapters-details&quot;&gt;Step 2: Select the adapter’s details&lt;/h2&gt;
 
-<p><img src="/img/image-1.png" alt="Alt text" /></p>
+&lt;p&gt;&lt;img src=&quot;/img/image-1.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
-<h2 id="step-3-configure-the-socks-proxy">Step 3: “Configure” the SOCKS Proxy</h2>
+&lt;h2 id=&quot;step-3-configure-the-socks-proxy&quot;&gt;Step 3: “Configure” the SOCKS Proxy&lt;/h2&gt;
 
-<ol>
-  <li>Enable the “SOCKS Proxy” option.</li>
-  <li>Set a bogus server</li>
-</ol>
+&lt;ol&gt;
+  &lt;li&gt;Enable the “SOCKS Proxy” option.&lt;/li&gt;
+  &lt;li&gt;Set a bogus server&lt;/li&gt;
+&lt;/ol&gt;
 
-<h2 id="step-4-enjoy-a-kill-switch">Step 4: Enjoy a kill-switch</h2>
+&lt;h2 id=&quot;step-4-enjoy-a-kill-switch&quot;&gt;Step 4: Enjoy a kill-switch&lt;/h2&gt;
 
-<p>I haven’t tested everything thoroughly, but seemed like an easy way to quit the default behavior and await until you’ve re-connected to your network.</p>
+&lt;p&gt;I haven’t tested everything thoroughly, but seemed like an easy way to quit the default behavior and await until you’ve re-connected to your network.&lt;/p&gt;
 
-<p>A future update may follow with some more testing, but in the meantime, it looks like a solution.</p>]]></content><author><name></name></author><category term="macos" /><category term="vpn" /><category term="on-demand" /><summary type="html"><![CDATA[Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.]]></summary></entry><entry><title type="html">Cyber attack techniques and types</title><link href="/2023/10/24/kill-chain.html" rel="alternate" type="text/html" title="Cyber attack techniques and types" /><published>2023-10-24T00:00:00+03:00</published><updated>2023-10-24T00:00:00+03:00</updated><id>/2023/10/24/kill-chain</id><content type="html" xml:base="/2023/10/24/kill-chain.html"><![CDATA[<table>
-  <thead>
-    <tr>
-      <th>Malware type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Viruses</td>
-      <td>Self-replicating programs that attach to legitimate files.</td>
-    </tr>
-    <tr>
-      <td>Worms</td>
-      <td>Self-replicating malware that spreads over networks.</td>
-    </tr>
-    <tr>
-      <td>Trojans</td>
-      <td>Masquerade as legitimate software but contain malicious code.</td>
-    </tr>
-    <tr>
-      <td>Ransomware</td>
-      <td>Encrypts files and demands a ransom for decryption.</td>
-    </tr>
-    <tr>
-      <td>Spyware</td>
-      <td>Secretly monitors and collects user activities.</td>
-    </tr>
-    <tr>
-      <td>Adware</td>
-      <td>Displays unwanted advertisements, often as pop-up ads.</td>
-    </tr>
-    <tr>
-      <td>Rootkits</td>
-      <td>Stealthy malware that hides its presence.</td>
-    </tr>
-    <tr>
-      <td>Botnets</td>
-      <td>Networks of compromised computers controlled by a central server.</td>
-    </tr>
-  </tbody>
-</table>
+&lt;p&gt;A future update may follow with some more testing, but in the meantime, it looks like a solution.&lt;/p&gt;</content><author><name></name></author><category term="macos" /><category term="vpn" /><category term="on-demand" /><summary type="html">Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.</summary></entry><entry><title type="html">Cyber attack techniques and types</title><link href="/2023/10/24/kill-chain.html" rel="alternate" type="text/html" title="Cyber attack techniques and types" /><published>2023-10-24T00:00:00+03:00</published><updated>2023-10-24T00:00:00+03:00</updated><id>/2023/10/24/kill-chain</id><content type="html" xml:base="/2023/10/24/kill-chain.html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Malware type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Viruses&lt;/td&gt;
+      &lt;td&gt;Self-replicating programs that attach to legitimate files.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Worms&lt;/td&gt;
+      &lt;td&gt;Self-replicating malware that spreads over networks.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Trojans&lt;/td&gt;
+      &lt;td&gt;Masquerade as legitimate software but contain malicious code.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ransomware&lt;/td&gt;
+      &lt;td&gt;Encrypts files and demands a ransom for decryption.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spyware&lt;/td&gt;
+      &lt;td&gt;Secretly monitors and collects user activities.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Adware&lt;/td&gt;
+      &lt;td&gt;Displays unwanted advertisements, often as pop-up ads.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rootkits&lt;/td&gt;
+      &lt;td&gt;Stealthy malware that hides its presence.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Botnets&lt;/td&gt;
+      &lt;td&gt;Networks of compromised computers controlled by a central server.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-<table>
-  <thead>
-    <tr>
-      <th>Attack techniques</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Phishing</td>
-      <td>Deceptive emails or websites to trick users into revealing sensitive information.</td>
-    </tr>
-    <tr>
-      <td>Spear Phishing</td>
-      <td>Targeted phishing with customized messages.</td>
-    </tr>
-    <tr>
-      <td>Man-in-the-Middle (MitM) Attacks</td>
-      <td>Intercepting and altering communications.</td>
-    </tr>
-    <tr>
-      <td>SQL Injection</td>
-      <td>Injecting malicious code into web forms to gain unauthorized access to databases.</td>
-    </tr>
-    <tr>
-      <td>DDoS Attacks</td>
-      <td>Overwhelming targets with traffic to disrupt services.</td>
-    </tr>
-    <tr>
-      <td>Zero-Day Exploits</td>
-      <td>Targeting unknown software vulnerabilities.</td>
-    </tr>
-    <tr>
-      <td>Drive-By Downloads</td>
-      <td>Automatically downloading malware from compromised websites.</td>
-    </tr>
-    <tr>
-      <td>Social Engineering</td>
-      <td>Manipulating individuals into divulging sensitive information.</td>
-    </tr>
-    <tr>
-      <td>Brute Force Attacks</td>
-      <td>Repeatedly guessing passwords or encryption keys.</td>
-    </tr>
-    <tr>
-      <td>Malvertising</td>
-      <td>Using malicious ads to deliver malware.</td>
-    </tr>
-    <tr>
-      <td>Watering Hole Attacks</td>
-      <td>Compromising websites visited by a target group.</td>
-    </tr>
-    <tr>
-      <td>Fileless Attacks</td>
-      <td>Abusing legitimate system tools for malicious activities.</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name></name></author><category term="cybersec" /><summary type="html"><![CDATA[Malware type Description Viruses Self-replicating programs that attach to legitimate files. Worms Self-replicating malware that spreads over networks. Trojans Masquerade as legitimate software but contain malicious code. Ransomware Encrypts files and demands a ransom for decryption. Spyware Secretly monitors and collects user activities. Adware Displays unwanted advertisements, often as pop-up ads. Rootkits Stealthy malware that hides its presence. Botnets Networks of compromised computers controlled by a central server.]]></summary></entry><entry><title type="html">Ad delivery test</title><link href="/2023/10/22/ad_test.html" rel="alternate" type="text/html" title="Ad delivery test" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/2023/10/22/ad_test</id><content type="html" xml:base="/2023/10/22/ad_test.html"><![CDATA[<iframe src="https://embed.music.apple.com/bg/album/last-words-feat-nashawn-millennium-thug/203759842" width="100%" height="100%" style="border: none";></iframe>]]></content><author><name></name></author><category term="tests" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Markdown cheatsheet</title><link href="/2023/10/22/markdown.html" rel="alternate" type="text/html" title="Markdown cheatsheet" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/2023/10/22/markdown</id><content type="html" xml:base="/2023/10/22/markdown.html"><![CDATA[<p><a href="http://google.com"><img src="https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg" alt="clickable" /></a></p>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Attack techniques&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phishing&lt;/td&gt;
+      &lt;td&gt;Deceptive emails or websites to trick users into revealing sensitive information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spear Phishing&lt;/td&gt;
+      &lt;td&gt;Targeted phishing with customized messages.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Man-in-the-Middle (MitM) Attacks&lt;/td&gt;
+      &lt;td&gt;Intercepting and altering communications.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;td&gt;Injecting malicious code into web forms to gain unauthorized access to databases.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DDoS Attacks&lt;/td&gt;
+      &lt;td&gt;Overwhelming targets with traffic to disrupt services.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Zero-Day Exploits&lt;/td&gt;
+      &lt;td&gt;Targeting unknown software vulnerabilities.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Drive-By Downloads&lt;/td&gt;
+      &lt;td&gt;Automatically downloading malware from compromised websites.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Social Engineering&lt;/td&gt;
+      &lt;td&gt;Manipulating individuals into divulging sensitive information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Brute Force Attacks&lt;/td&gt;
+      &lt;td&gt;Repeatedly guessing passwords or encryption keys.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Malvertising&lt;/td&gt;
+      &lt;td&gt;Using malicious ads to deliver malware.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Watering Hole Attacks&lt;/td&gt;
+      &lt;td&gt;Compromising websites visited by a target group.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Fileless Attacks&lt;/td&gt;
+      &lt;td&gt;Abusing legitimate system tools for malicious activities.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name></name></author><category term="cybersec" /><summary type="html">Malware type Description Viruses Self-replicating programs that attach to legitimate files. Worms Self-replicating malware that spreads over networks. Trojans Masquerade as legitimate software but contain malicious code. Ransomware Encrypts files and demands a ransom for decryption. Spyware Secretly monitors and collects user activities. Adware Displays unwanted advertisements, often as pop-up ads. Rootkits Stealthy malware that hides its presence. Botnets Networks of compromised computers controlled by a central server.</summary></entry><entry><title type="html">Ad delivery test</title><link href="/2023/10/22/ad_test.html" rel="alternate" type="text/html" title="Ad delivery test" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/2023/10/22/ad_test</id><content type="html" xml:base="/2023/10/22/ad_test.html">&lt;iframe src=&quot;https://embed.music.apple.com/bg/album/last-words-feat-nashawn-millennium-thug/203759842&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;border: none&quot;;&gt;&lt;/iframe&gt;</content><author><name></name></author><category term="tests" /><summary type="html"></summary></entry><entry><title type="html">Markdown cheatsheet</title><link href="/2023/10/22/markdown.html" rel="alternate" type="text/html" title="Markdown cheatsheet" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/2023/10/22/markdown</id><content type="html" xml:base="/2023/10/22/markdown.html">&lt;p&gt;&lt;a href=&quot;http://google.com&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg&quot; alt=&quot;clickable&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![alt text](image.jpg)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![alt text](image.jpg)
 [![clickable](image.jpg)](https://google.com)
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<h3 id="heading">Heading</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Heading - Biggest
+&lt;h3 id=&quot;heading&quot;&gt;Heading&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Heading - Biggest
 ## Heading
 ### Heading
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p><strong>Bold</strong></p>
+&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**bold**
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;**bold**
 or __bold__
-or &lt;strong&gt; bold &lt;/strong&gt;
-</code></pre></div></div>
+or &amp;lt;strong&amp;gt; bold &amp;lt;/strong&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p><em>Italic</em></p>
+&lt;p&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*italic*
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*italic*
 or _italic_
-or &lt;em&gt; italic &lt;/em&gt;
-</code></pre></div></div>
+or &amp;lt;em&amp;gt; italic &amp;lt;/em&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p><ins>Underlined</ins></p>
+&lt;p&gt;&lt;ins&gt;Underlined&lt;/ins&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ins&gt; Underlined &lt;/ins&gt; 
-(deprecated as it's hard to read and used for links)
-</code></pre></div></div>
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;ins&amp;gt; Underlined &amp;lt;/ins&amp;gt; 
+(deprecated as it&apos;s hard to read and used for links)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<blockquote>
-  <p>Blockquote</p>
-  <blockquote>
-    <p>2nd blockquote</p>
-  </blockquote>
-</blockquote>
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquote&lt;/p&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;2nd blockquote&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; blockquote
-&gt;&gt; 2nd block quote
-</code></pre></div></div>
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; blockquote
+&amp;gt;&amp;gt; 2nd block quote
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p><del>Strikethrough</del></p>
+&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∼∼Strikethrough∼∼
-</code></pre></div></div>
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;∼∼Strikethrough∼∼
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<ol>
-  <li>Ordered list
-    <ol>
-      <li>Sub-item</li>
-    </ol>
-  </li>
-  <li>Second-item</li>
-</ol>
+&lt;ol&gt;
+  &lt;li&gt;Ordered list
+    &lt;ol&gt;
+      &lt;li&gt;Sub-item&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Second-item&lt;/li&gt;
+&lt;/ol&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Ordered list
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Ordered list
 	1. Sub-item
 1. Second-item
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<ul>
-  <li>Unordered List
-    <ul>
-      <li>Sub-item</li>
-    </ul>
-  </li>
-</ul>
+&lt;ul&gt;
+  &lt;li&gt;Unordered List
+    &lt;ul&gt;
+      &lt;li&gt;Sub-item&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Unordered list
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* Unordered list
 	* Sub-item
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Task</li>
-</ul>
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Task&lt;/li&gt;
+&lt;/ul&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- [x] Task
-</code></pre></div></div>
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- [x] Task
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p><code class="language-plaintext highlighter-rouge">Code</code></p>
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    `code` 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    `code` 
 or  ``` code ```
 or  indent with 4 spaces or 1 tab
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p>Horizontal Rule</p>
+&lt;p&gt;Horizontal Rule&lt;/p&gt;
 
-<hr />
+&lt;hr /&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ---
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    ---
 or  ___ 
 or 	***
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p><a href="google.com">Direct link</a> <br />
-<a href="google.com">Reference link</a></p>
+&lt;p&gt;&lt;a href=&quot;google.com&quot;&gt;Direct link&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;google.com&quot;&gt;Reference link&lt;/a&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Direct link](google.com)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Direct link](google.com)
 
 [Reference link][test]
 [test]: google.com
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p>Footnote<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+&lt;p&gt;Footnote&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Footnote[^1]
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Footnote[^1]
 [^1]: This is the footnote.
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<table>
-  <thead>
-    <tr>
-      <th>Header</th>
-      <th style="text-align: right">2nd Header</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>r1c1</td>
-      <td style="text-align: right">r1c2</td>
-    </tr>
-    <tr>
-      <td>r2c1</td>
-      <td style="text-align: right">r2c2</td>
-    </tr>
-  </tbody>
-</table>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;2nd Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;r1c1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;r1c2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;r2c1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;r2c2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Header | 2nd Header |
-|   -    |    -:      | &lt;- rightside alignment
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| Header | 2nd Header |
+|   -    |    -:      | &amp;lt;- rightside alignment
 | r1c1   | r1c2       |
 | r2c1	 | r2c2       |
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p># Escape</p>
+&lt;p&gt;# Escape&lt;/p&gt;
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\# Escape
-</code></pre></div></div>
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\# Escape
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>This is the footnote. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="cheatsheets" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Playlist test</title><link href="/2021/09/09/playlist.html" rel="alternate" type="text/html" title="Playlist test" /><published>2021-09-09T00:00:00+03:00</published><updated>2021-09-09T00:00:00+03:00</updated><id>/2021/09/09/playlist</id><content type="html" xml:base="/2021/09/09/playlist.html"><![CDATA[<ul>
-  <li><a href="https://www.youtube.com/playlist?list=PLW7k-J84Xpm064_-zsyr07MF3PPxxUkoK&amp;jct=gE2U7KxCZtu8_U7LTMb2Mx-UBAX4kQ">Mixes</a></li>
-</ul>]]></content><author><name></name></author><summary type="html"><![CDATA[Mixes]]></summary></entry></feed>
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="cheatsheets" /><summary type="html"></summary></entry><entry><title type="html">Playlist test</title><link href="/2021/09/09/playlist.html" rel="alternate" type="text/html" title="Playlist test" /><published>2021-09-09T00:00:00+03:00</published><updated>2021-09-09T00:00:00+03:00</updated><id>/2021/09/09/playlist</id><content type="html" xml:base="/2021/09/09/playlist.html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLW7k-J84Xpm064_-zsyr07MF3PPxxUkoK&amp;amp;jct=gE2U7KxCZtu8_U7LTMb2Mx-UBAX4kQ&quot;&gt;Mixes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Mixes</summary></entry></feed>
