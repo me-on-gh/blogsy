@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-11-09T20:38:35+02:00</updated><id>/feed.xml</id><title type="html">Blogsy</title><subtitle>Sharing thoughts and things I find interesting.  </subtitle><entry><title type="html">Crafting an On-Demand VPN Alternative with “SOCKS Proxy”</title><link href="/2023/10/25/kill_switch.html" rel="alternate" type="text/html" title="Crafting an On-Demand VPN Alternative with “SOCKS Proxy”" /><published>2023-10-25T00:00:00+03:00</published><updated>2023-10-25T00:00:00+03:00</updated><id>/2023/10/25/kill_switch</id><content type="html" xml:base="/2023/10/25/kill_switch.html">&lt;p&gt;Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-11-26T15:05:06+02:00</updated><id>/feed.xml</id><title type="html">Blogsy</title><subtitle>Sharing thoughts and things I find interesting.  </subtitle><entry><title type="html">How chatgpt infers my logic</title><link href="/2023/11/26/hluz.html" rel="alternate" type="text/html" title="How chatgpt infers my logic" /><published>2023-11-26T00:00:00+02:00</published><updated>2023-11-26T00:00:00+02:00</updated><id>/2023/11/26/hluz</id><content type="html" xml:base="/2023/11/26/hluz.html">&lt;p&gt;Query:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &lt;span class=&quot;nv&quot;&gt;$cloud&lt;/span&gt;/ssh &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;*.pub&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;config&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;.DS_Store&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-prune&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-exec&lt;/span&gt; ssh-add &lt;span class=&quot;nt&quot;&gt;--apple-use-keychain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; +
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It looks like you’re trying to find specific files in a directory structure and then use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; command to add them to the SSH agent. The command you provided is a combination of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; in a Unix-like shell environment.&lt;/p&gt;
+
+&lt;h3 id=&quot;command-breakdown&quot;&gt;Command Breakdown:&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find $cloud/ssh&lt;/code&gt;&lt;/strong&gt;: Start in the directory specified by the variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$cloud&lt;/code&gt; under the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh&lt;/code&gt; subdirectory.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-type f&lt;/code&gt;&lt;/strong&gt;: Look for files (not directories).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\(&lt;/code&gt; -name “*.pub” -o -name “config” -o -name “.DS_Store” &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\)&lt;/code&gt; -prune&lt;/strong&gt;: Exclude files with names matching &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.pub&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.DS_Store&lt;/code&gt; and prune (skip) those directories.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-o&lt;/code&gt;&lt;/strong&gt;: Logical OR.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-type f&lt;/code&gt;&lt;/strong&gt;: For the files that do not match the exclusion criteria, perform the following actions.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-exec ssh-add --apple-use-keychain {} +&lt;/code&gt;&lt;/strong&gt;: Execute the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; command with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--apple-use-keychain&lt;/code&gt; option on the found files.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;explanation-of-options&quot;&gt;Explanation of Options:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-name&lt;/code&gt;&lt;/strong&gt;: Matches files based on their name.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-prune&lt;/code&gt;&lt;/strong&gt;: Stops searching in the specified directories and does not descend into them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note: The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$cloud&lt;/code&gt; variable should be defined or replaced with the actual path you want to use.&lt;/p&gt;
+
+&lt;p&gt;Make sure to understand the implications of running such commands, especially if you have sensitive information in your SSH files. Always double-check and understand the commands you execute in the terminal.&lt;/p&gt;</content><author><name></name></author><summary type="html">Query: find $cloud/ssh -type f \( -name &quot;*.pub&quot; -o -name &quot;config&quot; -o -name &quot;.DS_Store&quot; \) -prune -o -type f -exec ssh-add --apple-use-keychain {} +</summary></entry><entry><title type="html">Crafting an On-Demand VPN Alternative with “SOCKS Proxy”</title><link href="/2023/10/25/kill_switch.html" rel="alternate" type="text/html" title="Crafting an On-Demand VPN Alternative with “SOCKS Proxy”" /><published>2023-10-25T00:00:00+03:00</published><updated>2023-10-25T00:00:00+03:00</updated><id>/2023/10/25/kill_switch</id><content type="html" xml:base="/2023/10/25/kill_switch.html">&lt;p&gt;Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.&lt;/p&gt;
 
 &lt;p&gt;The on-demand VPN feature for macOS may be a little bit tricky to configure through the GUI and without going through device management configuration tools.&lt;/p&gt;
 
@@ -12,11 +38,11 @@
 
 &lt;h2 id=&quot;step-1-open-the-network-settings&quot;&gt;Step 1: Open the Network settings&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/image.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;image.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;step-2-select-the-adapters-details&quot;&gt;Step 2: Select the adapter’s details&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/image-1.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/.image-1.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;step-3-configure-the-socks-proxy&quot;&gt;Step 3: “Configure” the SOCKS Proxy&lt;/h2&gt;
 
@@ -29,107 +55,7 @@
 
 &lt;p&gt;I haven’t tested everything thoroughly, but seemed like an easy way to quit the default behavior and await until you’ve re-connected to your network.&lt;/p&gt;
 
-&lt;p&gt;A future update may follow with some more testing, but in the meantime, it looks like a solution.&lt;/p&gt;</content><author><name></name></author><category term="macos" /><category term="vpn" /><category term="on-demand" /><summary type="html">Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.</summary></entry><entry><title type="html">Cyber attack techniques and types</title><link href="/2023/10/24/kill-chain.html" rel="alternate" type="text/html" title="Cyber attack techniques and types" /><published>2023-10-24T00:00:00+03:00</published><updated>2023-10-24T00:00:00+03:00</updated><id>/2023/10/24/kill-chain</id><content type="html" xml:base="/2023/10/24/kill-chain.html">&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Malware type&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Viruses&lt;/td&gt;
-      &lt;td&gt;Self-replicating programs that attach to legitimate files.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Worms&lt;/td&gt;
-      &lt;td&gt;Self-replicating malware that spreads over networks.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Trojans&lt;/td&gt;
-      &lt;td&gt;Masquerade as legitimate software but contain malicious code.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ransomware&lt;/td&gt;
-      &lt;td&gt;Encrypts files and demands a ransom for decryption.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Spyware&lt;/td&gt;
-      &lt;td&gt;Secretly monitors and collects user activities.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Adware&lt;/td&gt;
-      &lt;td&gt;Displays unwanted advertisements, often as pop-up ads.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Rootkits&lt;/td&gt;
-      &lt;td&gt;Stealthy malware that hides its presence.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Botnets&lt;/td&gt;
-      &lt;td&gt;Networks of compromised computers controlled by a central server.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Attack techniques&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Phishing&lt;/td&gt;
-      &lt;td&gt;Deceptive emails or websites to trick users into revealing sensitive information.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Spear Phishing&lt;/td&gt;
-      &lt;td&gt;Targeted phishing with customized messages.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Man-in-the-Middle (MitM) Attacks&lt;/td&gt;
-      &lt;td&gt;Intercepting and altering communications.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SQL Injection&lt;/td&gt;
-      &lt;td&gt;Injecting malicious code into web forms to gain unauthorized access to databases.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;DDoS Attacks&lt;/td&gt;
-      &lt;td&gt;Overwhelming targets with traffic to disrupt services.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Zero-Day Exploits&lt;/td&gt;
-      &lt;td&gt;Targeting unknown software vulnerabilities.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Drive-By Downloads&lt;/td&gt;
-      &lt;td&gt;Automatically downloading malware from compromised websites.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Social Engineering&lt;/td&gt;
-      &lt;td&gt;Manipulating individuals into divulging sensitive information.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Brute Force Attacks&lt;/td&gt;
-      &lt;td&gt;Repeatedly guessing passwords or encryption keys.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Malvertising&lt;/td&gt;
-      &lt;td&gt;Using malicious ads to deliver malware.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Watering Hole Attacks&lt;/td&gt;
-      &lt;td&gt;Compromising websites visited by a target group.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Fileless Attacks&lt;/td&gt;
-      &lt;td&gt;Abusing legitimate system tools for malicious activities.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name></name></author><category term="cybersec" /><summary type="html">Malware type Description Viruses Self-replicating programs that attach to legitimate files. Worms Self-replicating malware that spreads over networks. Trojans Masquerade as legitimate software but contain malicious code. Ransomware Encrypts files and demands a ransom for decryption. Spyware Secretly monitors and collects user activities. Adware Displays unwanted advertisements, often as pop-up ads. Rootkits Stealthy malware that hides its presence. Botnets Networks of compromised computers controlled by a central server.</summary></entry><entry><title type="html">Ad delivery test</title><link href="/2023/10/22/ad_test.html" rel="alternate" type="text/html" title="Ad delivery test" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/2023/10/22/ad_test</id><content type="html" xml:base="/2023/10/22/ad_test.html">&lt;iframe src=&quot;https://embed.music.apple.com/bg/album/last-words-feat-nashawn-millennium-thug/203759842&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;border: none&quot;;&gt;&lt;/iframe&gt;</content><author><name></name></author><category term="tests" /><summary type="html"></summary></entry><entry><title type="html">Markdown cheatsheet</title><link href="/2023/10/22/markdown.html" rel="alternate" type="text/html" title="Markdown cheatsheet" /><published>2023-10-22T00:00:00+03:00</published><updated>2023-10-22T00:00:00+03:00</updated><id>/2023/10/22/markdown</id><content type="html" xml:base="/2023/10/22/markdown.html">&lt;p&gt;&lt;a href=&quot;http://google.com&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg&quot; alt=&quot;clickable&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A future update may follow with some more testing, but in the meantime, it looks like a solution.&lt;/p&gt;</content><author><name></name></author><category term="macos" /><category term="vpn" /><category term="on-demand" /><summary type="html">Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.</summary></entry><entry><title type="html">Markdown cheatsheet</title><link href="/2023/10/06/markdown.html" rel="alternate" type="text/html" title="Markdown cheatsheet" /><published>2023-10-06T00:00:00+03:00</published><updated>2023-10-06T00:00:00+03:00</updated><id>/2023/10/06/markdown</id><content type="html" xml:base="/2023/10/06/markdown.html">&lt;p&gt;&lt;a href=&quot;http://google.com&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg&quot; alt=&quot;clickable&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![alt text](image.jpg)
 [![clickable](image.jpg)](https://google.com)
@@ -277,6 +203,106 @@ or 	***
       &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="cheatsheets" /><summary type="html"></summary></entry><entry><title type="html">Playlist test</title><link href="/2021/09/09/playlist.html" rel="alternate" type="text/html" title="Playlist test" /><published>2021-09-09T00:00:00+03:00</published><updated>2021-09-09T00:00:00+03:00</updated><id>/2021/09/09/playlist</id><content type="html" xml:base="/2021/09/09/playlist.html">&lt;ul&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="cheatsheets" /><summary type="html"></summary></entry><entry><title type="html">Cyber attack techniques and types</title><link href="/2021/09/25/kill-chain.html" rel="alternate" type="text/html" title="Cyber attack techniques and types" /><published>2021-09-25T00:00:00+03:00</published><updated>2021-09-25T00:00:00+03:00</updated><id>/2021/09/25/kill-chain</id><content type="html" xml:base="/2021/09/25/kill-chain.html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Malware type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Viruses&lt;/td&gt;
+      &lt;td&gt;Self-replicating programs that attach to legitimate files.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Worms&lt;/td&gt;
+      &lt;td&gt;Self-replicating malware that spreads over networks.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Trojans&lt;/td&gt;
+      &lt;td&gt;Masquerade as legitimate software but contain malicious code.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ransomware&lt;/td&gt;
+      &lt;td&gt;Encrypts files and demands a ransom for decryption.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spyware&lt;/td&gt;
+      &lt;td&gt;Secretly monitors and collects user activities.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Adware&lt;/td&gt;
+      &lt;td&gt;Displays unwanted advertisements, often as pop-up ads.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rootkits&lt;/td&gt;
+      &lt;td&gt;Stealthy malware that hides its presence.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Botnets&lt;/td&gt;
+      &lt;td&gt;Networks of compromised computers controlled by a central server.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Attack techniques&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phishing&lt;/td&gt;
+      &lt;td&gt;Deceptive emails or websites to trick users into revealing sensitive information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spear Phishing&lt;/td&gt;
+      &lt;td&gt;Targeted phishing with customized messages.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Man-in-the-Middle (MitM) Attacks&lt;/td&gt;
+      &lt;td&gt;Intercepting and altering communications.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;td&gt;Injecting malicious code into web forms to gain unauthorized access to databases.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DDoS Attacks&lt;/td&gt;
+      &lt;td&gt;Overwhelming targets with traffic to disrupt services.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Zero-Day Exploits&lt;/td&gt;
+      &lt;td&gt;Targeting unknown software vulnerabilities.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Drive-By Downloads&lt;/td&gt;
+      &lt;td&gt;Automatically downloading malware from compromised websites.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Social Engineering&lt;/td&gt;
+      &lt;td&gt;Manipulating individuals into divulging sensitive information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Brute Force Attacks&lt;/td&gt;
+      &lt;td&gt;Repeatedly guessing passwords or encryption keys.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Malvertising&lt;/td&gt;
+      &lt;td&gt;Using malicious ads to deliver malware.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Watering Hole Attacks&lt;/td&gt;
+      &lt;td&gt;Compromising websites visited by a target group.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Fileless Attacks&lt;/td&gt;
+      &lt;td&gt;Abusing legitimate system tools for malicious activities.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name></name></author><category term="cybersec" /><summary type="html">Malware type Description Viruses Self-replicating programs that attach to legitimate files. Worms Self-replicating malware that spreads over networks. Trojans Masquerade as legitimate software but contain malicious code. Ransomware Encrypts files and demands a ransom for decryption. Spyware Secretly monitors and collects user activities. Adware Displays unwanted advertisements, often as pop-up ads. Rootkits Stealthy malware that hides its presence. Botnets Networks of compromised computers controlled by a central server.</summary></entry><entry><title type="html">Playlist test</title><link href="/2021/09/09/playlist.html" rel="alternate" type="text/html" title="Playlist test" /><published>2021-09-09T00:00:00+03:00</published><updated>2021-09-09T00:00:00+03:00</updated><id>/2021/09/09/playlist</id><content type="html" xml:base="/2021/09/09/playlist.html">&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLW7k-J84Xpm064_-zsyr07MF3PPxxUkoK&amp;amp;jct=gE2U7KxCZtu8_U7LTMb2Mx-UBAX4kQ&quot;&gt;Mixes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Mixes</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Mixes</summary></entry><entry><title type="html">Ad delivery test</title><link href="/2018/05/14/ad_test.html" rel="alternate" type="text/html" title="Ad delivery test" /><published>2018-05-14T00:00:00+03:00</published><updated>2018-05-14T00:00:00+03:00</updated><id>/2018/05/14/ad_test</id><content type="html" xml:base="/2018/05/14/ad_test.html">&lt;iframe src=&quot;https://embed.music.apple.com/bg/album/last-words-feat-nashawn-millennium-thug/203759842&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;border: none&quot;;&gt;&lt;/iframe&gt;</content><author><name></name></author><category term="tests" /><summary type="html"></summary></entry></feed>
