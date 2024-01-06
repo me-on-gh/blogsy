@@ -1,308 +1,355 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-12-24T16:55:05+02:00</updated><id>/feed.xml</id><title type="html">Blogsy</title><subtitle>Sharing thoughts and things I find interesting.  </subtitle><entry><title type="html">How chatgpt infers my logic</title><link href="/2023/11/26/hluz.html" rel="alternate" type="text/html" title="How chatgpt infers my logic" /><published>2023-11-26T00:00:00+02:00</published><updated>2023-11-26T00:00:00+02:00</updated><id>/2023/11/26/hluz</id><content type="html" xml:base="/2023/11/26/hluz.html">&lt;p&gt;Query:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &lt;span class=&quot;nv&quot;&gt;$cloud&lt;/span&gt;/ssh &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;*.pub&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;config&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;.DS_Store&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-prune&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-exec&lt;/span&gt; ssh-add &lt;span class=&quot;nt&quot;&gt;--apple-use-keychain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; +
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2024-01-06T17:02:03+02:00</updated><id>/blog/feed.xml</id><title type="html">Blogsy</title><subtitle>Sharing thoughts and things I find interesting.  </subtitle><entry><title type="html">File/Space/Disk usage on linux</title><link href="/blog/disk/availability" rel="alternate" type="text/html" title="File/Space/Disk usage on linux" /><published>2024-01-06T00:00:00+02:00</published><updated>2024-01-06T00:00:00+02:00</updated><id>/blog/disk/du_df_</id><content type="html" xml:base="/blog/disk/availability"><![CDATA[<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">du</code> (Disk Usage):</strong></p>
 
-&lt;p&gt;It looks like you’re trying to find specific files in a directory structure and then use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; command to add them to the SSH agent. The command you provided is a combination of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; in a Unix-like shell environment.&lt;/p&gt;
+    <p>Open a terminal and navigate to the directory you want to start the search from. Then run the following command to display disk usage:</p>
 
-&lt;h3 id=&quot;command-breakdown&quot;&gt;Command Breakdown:&lt;/h3&gt;
+    <p><code class="language-plaintext highlighter-rouge">du -h --max-depth=1</code></p>
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find $cloud/ssh&lt;/code&gt;&lt;/strong&gt;: Start in the directory specified by the variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$cloud&lt;/code&gt; under the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh&lt;/code&gt; subdirectory.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-type f&lt;/code&gt;&lt;/strong&gt;: Look for files (not directories).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\(&lt;/code&gt; -name “*.pub” -o -name “config” -o -name “.DS_Store” &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\)&lt;/code&gt; -prune&lt;/strong&gt;: Exclude files with names matching &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.pub&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.DS_Store&lt;/code&gt; and prune (skip) those directories.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-o&lt;/code&gt;&lt;/strong&gt;: Logical OR.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-type f&lt;/code&gt;&lt;/strong&gt;: For the files that do not match the exclusion criteria, perform the following actions.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-exec ssh-add --apple-use-keychain {} +&lt;/code&gt;&lt;/strong&gt;: Execute the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; command with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--apple-use-keychain&lt;/code&gt; option on the found files.&lt;/li&gt;
-&lt;/ol&gt;
+    <p>This will show you the sizes of directories and subdirectories in the current location. You can navigate to the largest directories and repeat the command to drill down further.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">df</code> (Disk Free):</strong></p>
 
-&lt;h4 id=&quot;explanation-of-options&quot;&gt;Explanation of Options:&lt;/h4&gt;
+    <p>To get an overview of disk space usage for all mounted filesystems, use the <code class="language-plaintext highlighter-rouge">df</code> command:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-name&lt;/code&gt;&lt;/strong&gt;: Matches files based on their name.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-prune&lt;/code&gt;&lt;/strong&gt;: Stops searching in the specified directories and does not descend into them.&lt;/li&gt;
-&lt;/ul&gt;
+    <p><code class="language-plaintext highlighter-rouge">df -h</code></p>
 
-&lt;p&gt;Note: The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$cloud&lt;/code&gt; variable should be defined or replaced with the actual path you want to use.&lt;/p&gt;
+    <p>This will display information about disk space usage for each mounted partition.</p>
+  </li>
+</ul>
 
-&lt;p&gt;Make sure to understand the implications of running such commands, especially if you have sensitive information in your SSH files. Always double-check and understand the commands you execute in the terminal.&lt;/p&gt;</content><author><name></name></author><summary type="html">Query: find $cloud/ssh -type f \( -name &quot;*.pub&quot; -o -name &quot;config&quot; -o -name &quot;.DS_Store&quot; \) -prune -o -type f -exec ssh-add --apple-use-keychain {} +</summary></entry><entry><title type="html">Crafting an On-Demand VPN Alternative with “SOCKS Proxy”</title><link href="/2023/10/25/kill_switch.html" rel="alternate" type="text/html" title="Crafting an On-Demand VPN Alternative with “SOCKS Proxy”" /><published>2023-10-25T00:00:00+03:00</published><updated>2023-10-25T00:00:00+03:00</updated><id>/2023/10/25/kill_switch</id><content type="html" xml:base="/2023/10/25/kill_switch.html">&lt;p&gt;Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.&lt;/p&gt;
+<hr />
+<p>If you prefer a more interactive tool, you can install <code class="language-plaintext highlighter-rouge">ncdu</code>:</p>
 
-&lt;p&gt;The on-demand VPN feature for macOS may be a little bit tricky to configure through the GUI and without going through device management configuration tools.&lt;/p&gt;
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">ncdu</code> (NCurses Disk Usage):</strong></p>
 
-&lt;h2 id=&quot;make-sure-youve-got&quot;&gt;Make sure you’ve got&lt;/h2&gt;
+    <p><code class="language-plaintext highlighter-rouge">sudo apt-get install ncdu (apt or alike)</code></p>
 
-&lt;ul&gt;
-  &lt;li&gt;macOS.&lt;/li&gt;
-  &lt;li&gt;A functioning IKEv2 tunnel or alike.&lt;/li&gt;
-  &lt;li&gt;Creativity with bogus names.&lt;/li&gt;
-&lt;/ul&gt;
+    <p>Then, run <code class="language-plaintext highlighter-rouge">ncdu</code> from the terminal in the directory you want to analyze. It will provide an interactive interface to explore disk usage.</p>
+  </li>
+</ul>
 
-&lt;h2 id=&quot;step-1-open-the-network-settings&quot;&gt;Step 1: Open the Network settings&lt;/h2&gt;
+<hr />
 
-&lt;p&gt;&lt;img src=&quot;image.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">find</code></strong></p>
 
-&lt;h2 id=&quot;step-2-select-the-adapters-details&quot;&gt;Step 2: Select the adapter’s details&lt;/h2&gt;
+    <p>You can use the <code class="language-plaintext highlighter-rouge">find</code> command to search for large files in the entire filesystem. For example, to find files larger than 1 GB:</p>
 
-&lt;p&gt;&lt;img src=&quot;/.image-1.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+    <p><code class="language-plaintext highlighter-rouge">sudo find / -type f -size +1G</code></p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">lsof</code></strong></p>
 
-&lt;h2 id=&quot;step-3-configure-the-socks-proxy&quot;&gt;Step 3: “Configure” the SOCKS Proxy&lt;/h2&gt;
+    <p>The <code class="language-plaintext highlighter-rouge">lsof</code> command can help you identify which processes have open file handles. This can be useful to find files that are being held open by processes. For example:</p>
 
-&lt;ol&gt;
-  &lt;li&gt;Enable the “SOCKS Proxy” option.&lt;/li&gt;
-  &lt;li&gt;Set a bogus server&lt;/li&gt;
-&lt;/ol&gt;
+    <p><code class="language-plaintext highlighter-rouge">sudo lsof | grep deleted</code></p>
+  </li>
+</ul>]]></content><author><name></name></author><summary type="html"><![CDATA[du (Disk Usage):]]></summary></entry><entry><title type="html">How chatgpt infers my logic</title><link href="/blog/2023/11/26/ssh_to_keychain.html" rel="alternate" type="text/html" title="How chatgpt infers my logic" /><published>2023-11-26T00:00:00+02:00</published><updated>2023-11-26T00:00:00+02:00</updated><id>/blog/2023/11/26/ssh_to_keychain</id><content type="html" xml:base="/blog/2023/11/26/ssh_to_keychain.html"><![CDATA[<p>Query:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nv">$cloud</span>/ssh <span class="nt">-type</span> f <span class="se">\(</span> <span class="nt">-name</span> <span class="s2">"*.pub"</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s2">"config"</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s2">".DS_Store"</span> <span class="se">\)</span> <span class="nt">-prune</span> <span class="nt">-o</span> <span class="nt">-type</span> f <span class="nt">-exec</span> ssh-add <span class="nt">--apple-use-keychain</span> <span class="o">{}</span> +
+</code></pre></div></div>
 
-&lt;h2 id=&quot;step-4-enjoy-a-kill-switch&quot;&gt;Step 4: Enjoy a kill-switch&lt;/h2&gt;
+<p>It looks like you’re trying to find specific files in a directory structure and then use the <code class="language-plaintext highlighter-rouge">ssh-add</code> command to add them to the SSH agent. The command you provided is a combination of <code class="language-plaintext highlighter-rouge">find</code> and <code class="language-plaintext highlighter-rouge">ssh-add</code> in a Unix-like shell environment.</p>
 
-&lt;p&gt;I haven’t tested everything thoroughly, but seemed like an easy way to quit the default behavior and await until you’ve re-connected to your network.&lt;/p&gt;
+<h3 id="command-breakdown">Command Breakdown:</h3>
 
-&lt;p&gt;A future update may follow with some more testing, but in the meantime, it looks like a solution.&lt;/p&gt;</content><author><name></name></author><category term="macos" /><category term="vpn" /><category term="on-demand" /><summary type="html">Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.</summary></entry><entry><title type="html">Markdown cheatsheet</title><link href="/2023/10/06/markdown.html" rel="alternate" type="text/html" title="Markdown cheatsheet" /><published>2023-10-06T00:00:00+03:00</published><updated>2023-10-06T00:00:00+03:00</updated><id>/2023/10/06/markdown</id><content type="html" xml:base="/2023/10/06/markdown.html">&lt;p&gt;&lt;a href=&quot;http://google.com&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg&quot; alt=&quot;clickable&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">find $cloud/ssh</code></strong>: Start in the directory specified by the variable <code class="language-plaintext highlighter-rouge">$cloud</code> under the <code class="language-plaintext highlighter-rouge">ssh</code> subdirectory.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-type f</code></strong>: Look for files (not directories).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">\(</code> -name “*.pub” -o -name “config” -o -name “.DS_Store” <code class="language-plaintext highlighter-rouge">\)</code> -prune</strong>: Exclude files with names matching <code class="language-plaintext highlighter-rouge">*.pub</code>, <code class="language-plaintext highlighter-rouge">config</code>, or <code class="language-plaintext highlighter-rouge">.DS_Store</code> and prune (skip) those directories.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-o</code></strong>: Logical OR.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-type f</code></strong>: For the files that do not match the exclusion criteria, perform the following actions.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-exec ssh-add --apple-use-keychain {} +</code></strong>: Execute the <code class="language-plaintext highlighter-rouge">ssh-add</code> command with the <code class="language-plaintext highlighter-rouge">--apple-use-keychain</code> option on the found files.</li>
+</ol>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![alt text](image.jpg)
+<h4 id="explanation-of-options">Explanation of Options:</h4>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">-name</code></strong>: Matches files based on their name.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-prune</code></strong>: Stops searching in the specified directories and does not descend into them.</li>
+</ul>
+
+<p>Note: The <code class="language-plaintext highlighter-rouge">$cloud</code> variable should be defined or replaced with the actual path you want to use.</p>
+
+<p>Make sure to understand the implications of running such commands, especially if you have sensitive information in your SSH files. Always double-check and understand the commands you execute in the terminal.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Query: find $cloud/ssh -type f \( -name "*.pub" -o -name "config" -o -name ".DS_Store" \) -prune -o -type f -exec ssh-add --apple-use-keychain {} +]]></summary></entry><entry><title type="html">Crafting an On-Demand VPN Alternative with “SOCKS Proxy”</title><link href="/blog/2023/10/25/kill_switch.html" rel="alternate" type="text/html" title="Crafting an On-Demand VPN Alternative with “SOCKS Proxy”" /><published>2023-10-25T00:00:00+03:00</published><updated>2023-10-25T00:00:00+03:00</updated><id>/blog/2023/10/25/kill_switch</id><content type="html" xml:base="/blog/2023/10/25/kill_switch.html"><![CDATA[<p>Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.</p>
+
+<p>The on-demand VPN feature for macOS may be a little bit tricky to configure through the GUI and without going through device management configuration tools.</p>
+
+<h2 id="make-sure-youve-got">Make sure you’ve got</h2>
+
+<ul>
+  <li>macOS.</li>
+  <li>A functioning IKEv2 tunnel or alike.</li>
+  <li>Creativity with bogus names.</li>
+</ul>
+
+<h2 id="step-1-open-the-network-settings">Step 1: Open the Network settings</h2>
+
+<p><img src="image.png" alt="Alt text" /></p>
+
+<h2 id="step-2-select-the-adapters-details">Step 2: Select the adapter’s details</h2>
+
+<p><img src="/.image-1.png" alt="Alt text" /></p>
+
+<h2 id="step-3-configure-the-socks-proxy">Step 3: “Configure” the SOCKS Proxy</h2>
+
+<ol>
+  <li>Enable the “SOCKS Proxy” option.</li>
+  <li>Set a bogus server</li>
+</ol>
+
+<h2 id="step-4-enjoy-a-kill-switch">Step 4: Enjoy a kill-switch</h2>
+
+<p>I haven’t tested everything thoroughly, but seemed like an easy way to quit the default behavior and await until you’ve re-connected to your network.</p>
+
+<p>A future update may follow with some more testing, but in the meantime, it looks like a solution.</p>]]></content><author><name></name></author><category term="macos" /><category term="vpn" /><category term="on-demand" /><summary type="html"><![CDATA[Hey there, sharing a nifty tech thing I stumbled working on as I was looking to recreate something I had used in the past to escape the geo fencing hell without relaying on major subscription services, or any pesky VPS provider.]]></summary></entry><entry><title type="html">Markdown cheatsheet</title><link href="/blog/markdown_cheatsheet" rel="alternate" type="text/html" title="Markdown cheatsheet" /><published>2023-10-06T00:00:00+03:00</published><updated>2023-10-06T00:00:00+03:00</updated><id>/blog/markdown</id><content type="html" xml:base="/blog/markdown_cheatsheet"><![CDATA[<p><a href="http://google.com"><img src="https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg" alt="clickable" /></a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![alt text](image.jpg)
 [![clickable](image.jpg)](https://google.com)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;h3 id=&quot;heading&quot;&gt;Heading&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Heading - Biggest
+<h3 id="heading">Heading</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Heading - Biggest
 ## Heading
 ### Heading
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Bold</strong></p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;**bold**
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**bold**
 or __bold__
-or &amp;lt;strong&amp;gt; bold &amp;lt;/strong&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+or &lt;strong&gt; bold &lt;/strong&gt;
+</code></pre></div></div>
 
-&lt;p&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;/p&gt;
+<p><em>Italic</em></p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*italic*
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*italic*
 or _italic_
-or &amp;lt;em&amp;gt; italic &amp;lt;/em&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+or &lt;em&gt; italic &lt;/em&gt;
+</code></pre></div></div>
 
-&lt;p&gt;&lt;ins&gt;Underlined&lt;/ins&gt;&lt;/p&gt;
+<p><ins>Underlined</ins></p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;ins&amp;gt; Underlined &amp;lt;/ins&amp;gt; 
-(deprecated as it&apos;s hard to read and used for links)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ins&gt; Underlined &lt;/ins&gt; 
+(deprecated as it's hard to read and used for links)
+</code></pre></div></div>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Blockquote&lt;/p&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;2nd blockquote&lt;/p&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Blockquote</p>
+  <blockquote>
+    <p>2nd blockquote</p>
+  </blockquote>
+</blockquote>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; blockquote
-&amp;gt;&amp;gt; 2nd block quote
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; blockquote
+&gt;&gt; 2nd block quote
+</code></pre></div></div>
 
-&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
+<p><del>Strikethrough</del></p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;∼∼Strikethrough∼∼
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>∼∼Strikethrough∼∼
+</code></pre></div></div>
 
-&lt;ol&gt;
-  &lt;li&gt;Ordered list
-    &lt;ol&gt;
-      &lt;li&gt;Sub-item&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Second-item&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li>Ordered list
+    <ol>
+      <li>Sub-item</li>
+    </ol>
+  </li>
+  <li>Second-item</li>
+</ol>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Ordered list
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Ordered list
 	1. Sub-item
 1. Second-item
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;Unordered List
-    &lt;ul&gt;
-      &lt;li&gt;Sub-item&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Unordered List
+    <ul>
+      <li>Sub-item</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* Unordered list
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Unordered list
 	* Sub-item
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;ul class=&quot;task-list&quot;&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Task&lt;/li&gt;
-&lt;/ul&gt;
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Task</li>
+</ul>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- [x] Task
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- [x] Task
+</code></pre></div></div>
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Code&lt;/code&gt;&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">Code</code></p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    `code` 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    `code` 
 or  ``` code ```
 or  indent with 4 spaces or 1 tab
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;Horizontal Rule&lt;/p&gt;
+<hr />
 
-&lt;hr /&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ---
+or  ___
+or  ***
+</code></pre></div></div>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    ---
-or  ___ 
-or 	***
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<p><a href="google.com">Direct link</a> <br />
+<a href="google.com">Reference link</a></p>
 
-&lt;p&gt;&lt;a href=&quot;google.com&quot;&gt;Direct link&lt;/a&gt; &lt;br /&gt;
-&lt;a href=&quot;google.com&quot;&gt;Reference link&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Direct link](google.com)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Direct link](google.com)
 
 [Reference link][test]
 [test]: google.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;Footnote&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+<p>Footnote<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Footnote[^1]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Footnote[^1]
 [^1]: This is the footnote.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Header&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;2nd Header&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;r1c1&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;r1c2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;r2c1&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;r2c2&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th style="text-align: right">2nd Header</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>r1c1</td>
+      <td style="text-align: right">r1c2</td>
+    </tr>
+    <tr>
+      <td>r2c1</td>
+      <td style="text-align: right">r2c2</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| Header | 2nd Header |
-|   -    |    -:      | &amp;lt;- rightside alignment
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Header | 2nd Header |
+|   -    |    -:      | &lt;- rightside alignment
 | r1c1   | r1c2       |
 | r2c1	 | r2c2       |
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;# Escape&lt;/p&gt;
+<p># Escape</p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\# Escape
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\# Escape
+</code></pre></div></div>
 
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="cheatsheets" /><summary type="html"></summary></entry><entry><title type="html">Cyber attack techniques and types</title><link href="/2021/09/25/kill-chain.html" rel="alternate" type="text/html" title="Cyber attack techniques and types" /><published>2021-09-25T00:00:00+03:00</published><updated>2021-09-25T00:00:00+03:00</updated><id>/2021/09/25/kill-chain</id><content type="html" xml:base="/2021/09/25/kill-chain.html">&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Malware type&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Viruses&lt;/td&gt;
-      &lt;td&gt;Self-replicating programs that attach to legitimate files.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Worms&lt;/td&gt;
-      &lt;td&gt;Self-replicating malware that spreads over networks.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Trojans&lt;/td&gt;
-      &lt;td&gt;Masquerade as legitimate software but contain malicious code.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ransomware&lt;/td&gt;
-      &lt;td&gt;Encrypts files and demands a ransom for decryption.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Spyware&lt;/td&gt;
-      &lt;td&gt;Secretly monitors and collects user activities.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Adware&lt;/td&gt;
-      &lt;td&gt;Displays unwanted advertisements, often as pop-up ads.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Rootkits&lt;/td&gt;
-      &lt;td&gt;Stealthy malware that hides its presence.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Botnets&lt;/td&gt;
-      &lt;td&gt;Networks of compromised computers controlled by a central server.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>This is the footnote. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="cheatsheets" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Cyber attack techniques and types</title><link href="/blog/2021/09/25/kill-chain.html" rel="alternate" type="text/html" title="Cyber attack techniques and types" /><published>2021-09-25T00:00:00+03:00</published><updated>2021-09-25T00:00:00+03:00</updated><id>/blog/2021/09/25/kill-chain</id><content type="html" xml:base="/blog/2021/09/25/kill-chain.html"><![CDATA[<table>
+  <thead>
+    <tr>
+      <th>Malware type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Viruses</td>
+      <td>Self-replicating programs that attach to legitimate files.</td>
+    </tr>
+    <tr>
+      <td>Worms</td>
+      <td>Self-replicating malware that spreads over networks.</td>
+    </tr>
+    <tr>
+      <td>Trojans</td>
+      <td>Masquerade as legitimate software but contain malicious code.</td>
+    </tr>
+    <tr>
+      <td>Ransomware</td>
+      <td>Encrypts files and demands a ransom for decryption.</td>
+    </tr>
+    <tr>
+      <td>Spyware</td>
+      <td>Secretly monitors and collects user activities.</td>
+    </tr>
+    <tr>
+      <td>Adware</td>
+      <td>Displays unwanted advertisements, often as pop-up ads.</td>
+    </tr>
+    <tr>
+      <td>Rootkits</td>
+      <td>Stealthy malware that hides its presence.</td>
+    </tr>
+    <tr>
+      <td>Botnets</td>
+      <td>Networks of compromised computers controlled by a central server.</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Attack techniques&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Phishing&lt;/td&gt;
-      &lt;td&gt;Deceptive emails or websites to trick users into revealing sensitive information.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Spear Phishing&lt;/td&gt;
-      &lt;td&gt;Targeted phishing with customized messages.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Man-in-the-Middle (MitM) Attacks&lt;/td&gt;
-      &lt;td&gt;Intercepting and altering communications.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SQL Injection&lt;/td&gt;
-      &lt;td&gt;Injecting malicious code into web forms to gain unauthorized access to databases.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;DDoS Attacks&lt;/td&gt;
-      &lt;td&gt;Overwhelming targets with traffic to disrupt services.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Zero-Day Exploits&lt;/td&gt;
-      &lt;td&gt;Targeting unknown software vulnerabilities.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Drive-By Downloads&lt;/td&gt;
-      &lt;td&gt;Automatically downloading malware from compromised websites.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Social Engineering&lt;/td&gt;
-      &lt;td&gt;Manipulating individuals into divulging sensitive information.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Brute Force Attacks&lt;/td&gt;
-      &lt;td&gt;Repeatedly guessing passwords or encryption keys.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Malvertising&lt;/td&gt;
-      &lt;td&gt;Using malicious ads to deliver malware.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Watering Hole Attacks&lt;/td&gt;
-      &lt;td&gt;Compromising websites visited by a target group.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Fileless Attacks&lt;/td&gt;
-      &lt;td&gt;Abusing legitimate system tools for malicious activities.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name></name></author><category term="cybersec" /><summary type="html">Malware type Description Viruses Self-replicating programs that attach to legitimate files. Worms Self-replicating malware that spreads over networks. Trojans Masquerade as legitimate software but contain malicious code. Ransomware Encrypts files and demands a ransom for decryption. Spyware Secretly monitors and collects user activities. Adware Displays unwanted advertisements, often as pop-up ads. Rootkits Stealthy malware that hides its presence. Botnets Networks of compromised computers controlled by a central server.</summary></entry><entry><title type="html">Playlist test</title><link href="/2021/09/09/playlist.html" rel="alternate" type="text/html" title="Playlist test" /><published>2021-09-09T00:00:00+03:00</published><updated>2021-09-09T00:00:00+03:00</updated><id>/2021/09/09/playlist</id><content type="html" xml:base="/2021/09/09/playlist.html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLW7k-J84Xpm064_-zsyr07MF3PPxxUkoK&amp;amp;jct=gE2U7KxCZtu8_U7LTMb2Mx-UBAX4kQ&quot;&gt;Mixes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Mixes</summary></entry><entry><title type="html">Ad delivery test</title><link href="/2018/05/14/ad_test.html" rel="alternate" type="text/html" title="Ad delivery test" /><published>2018-05-14T00:00:00+03:00</published><updated>2018-05-14T00:00:00+03:00</updated><id>/2018/05/14/ad_test</id><content type="html" xml:base="/2018/05/14/ad_test.html">&lt;iframe src=&quot;https://embed.music.apple.com/bg/album/last-words-feat-nashawn-millennium-thug/203759842&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;border: none&quot;;&gt;&lt;/iframe&gt;</content><author><name></name></author><category term="tests" /><summary type="html"></summary></entry></feed>
+<table>
+  <thead>
+    <tr>
+      <th>Attack techniques</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Phishing</td>
+      <td>Deceptive emails or websites to trick users into revealing sensitive information.</td>
+    </tr>
+    <tr>
+      <td>Spear Phishing</td>
+      <td>Targeted phishing with customized messages.</td>
+    </tr>
+    <tr>
+      <td>Man-in-the-Middle (MitM) Attacks</td>
+      <td>Intercepting and altering communications.</td>
+    </tr>
+    <tr>
+      <td>SQL Injection</td>
+      <td>Injecting malicious code into web forms to gain unauthorized access to databases.</td>
+    </tr>
+    <tr>
+      <td>DDoS Attacks</td>
+      <td>Overwhelming targets with traffic to disrupt services.</td>
+    </tr>
+    <tr>
+      <td>Zero-Day Exploits</td>
+      <td>Targeting unknown software vulnerabilities.</td>
+    </tr>
+    <tr>
+      <td>Drive-By Downloads</td>
+      <td>Automatically downloading malware from compromised websites.</td>
+    </tr>
+    <tr>
+      <td>Social Engineering</td>
+      <td>Manipulating individuals into divulging sensitive information.</td>
+    </tr>
+    <tr>
+      <td>Brute Force Attacks</td>
+      <td>Repeatedly guessing passwords or encryption keys.</td>
+    </tr>
+    <tr>
+      <td>Malvertising</td>
+      <td>Using malicious ads to deliver malware.</td>
+    </tr>
+    <tr>
+      <td>Watering Hole Attacks</td>
+      <td>Compromising websites visited by a target group.</td>
+    </tr>
+    <tr>
+      <td>Fileless Attacks</td>
+      <td>Abusing legitimate system tools for malicious activities.</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name></name></author><summary type="html"><![CDATA[Malware type Description Viruses Self-replicating programs that attach to legitimate files. Worms Self-replicating malware that spreads over networks. Trojans Masquerade as legitimate software but contain malicious code. Ransomware Encrypts files and demands a ransom for decryption. Spyware Secretly monitors and collects user activities. Adware Displays unwanted advertisements, often as pop-up ads. Rootkits Stealthy malware that hides its presence. Botnets Networks of compromised computers controlled by a central server.]]></summary></entry><entry><title type="html">Ad delivery test</title><link href="/blog/%D0%B0%D0%B4%D1%82%D0%B5%D1%81%D1%82" rel="alternate" type="text/html" title="Ad delivery test" /><published>2018-05-14T00:00:00+03:00</published><updated>2018-05-14T00:00:00+03:00</updated><id>/blog/ad_test</id><content type="html" xml:base="/blog/%D0%B0%D0%B4%D1%82%D0%B5%D1%81%D1%82"><![CDATA[<iframe src="https://embed.music.apple.com/bg/album/last-words-feat-nashawn-millennium-thug/203759842" width="100%" height="100%" style="border: none";></iframe>]]></content><author><name></name></author><category term="tests" /><summary type="html"><![CDATA[]]></summary></entry></feed>
